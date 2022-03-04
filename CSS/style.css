@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /*ctr+H*/
+/* элемент nav и header должны быть поверх блока в котором находится before*/
+/*показывает границы блоков *{
+    outline: 2px solid red;
+} */
 @font-face {
   font-family: 'Montserrat';
   src: url(../fonts/Montserrat-Bold.ttf);
@@ -47,7 +51,7 @@ body {
   background-color: #282828;
 }
 
-.Opportunity, .begin__tittle, .contacts__title {
+.opportunity, .begin__tittle, .contacts__title {
   font-size: 72px;
   line-height: 87, 77px;
   font-weight: 700;
@@ -82,17 +86,9 @@ body {
   font-size: 24px;
 }
 
-.header .nav:first-child {
-  padding-left: 250px;
-}
-
-.header .nav:last-child {
-  padding-right: 250px;
-}
-
 .header .nav .nav__link {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
   -webkit-transition: color .2s;
   transition: color .2s;
 }
@@ -101,17 +97,19 @@ body {
   color: #00A3FF;
 }
 
+.header .nav:first-child {
+  padding-left: 250px;
+}
+
+.header .nav:last-child {
+  padding-right: 250px;
+}
+
 .intro {
+  overflow: hidden;
   max-height: 730px;
   height: 100%;
   position: relative;
-  /*background: 
-
-		linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.62)), 
-		url("/img/image_1.png");*/
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .intro__img {
@@ -122,12 +120,22 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   /*растягивается по ширине*/
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.52)), to(rgba(0, 0, 0, 0.62)));
-  background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.62));
+}
+
+.intro:before {
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 500;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.62);
 }
 
 .intro__inner {
-  z-index: 1000;
+  z-index: 900;
   position: relative;
   margin-left: 15%;
   display: -webkit-box;
@@ -141,7 +149,7 @@ body {
   margin-right: 38%;
 }
 
-.intro__inner .inner__blue {
+.intro__inner .inner__title {
   font-size: 72px;
   line-height: 87, 77px;
   color: #00A3FF;
@@ -149,13 +157,14 @@ body {
   padding-bottom: 10px;
 }
 
-.intro__inner .inner__white {
+.intro__inner .inner__text {
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
 }
 
 .intro .intro__nav {
+  z-index: 1000;
   position: absolute;
   bottom: 26px;
   right: 48.5%;
@@ -165,7 +174,7 @@ body {
   display: inline-block;
   width: 22px;
   height: 22px;
-  background: #fff;
+  background: #FFFFFF;
   -webkit-box-shadow: inset 1px 4px 4px rgba(0, 0, 0, 0.4);
           box-shadow: inset 1px 4px 4px rgba(0, 0, 0, 0.4);
   border-radius: 50%;
@@ -178,11 +187,11 @@ body {
   background: #00A3FF;
 }
 
-.Opportunity {
+.opportunity {
   margin-bottom: 90px;
 }
 
-.Opportunity__inner {
+.opportunity__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,12 +202,12 @@ body {
   padding-left: 80px;
 }
 
-.Opportunity__inner .inner__function {
+.opportunity__inner .opportunity__function {
   width: 50%;
   text-align: center;
 }
 
-.Opportunity__inner .inner__function .function {
+.opportunity__inner .opportunity__function .function {
   margin-bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,19 +217,19 @@ body {
           align-items: center;
 }
 
-.Opportunity__inner .inner__function .function .function__circle {
+.opportunity__inner .opportunity__function .function .function__circle {
   width: 30px;
   height: 30px;
   background: #00A3FF;
   border-radius: 50%;
 }
 
-.Opportunity__inner .inner__function .function .function__text {
+.opportunity__inner .opportunity__function .function .function__text {
   padding-left: 80px;
   font-weight: 600;
 }
 
-.Opportunity__inner .inner__comment {
+.opportunity__inner .opportunity__comment {
   position: relative;
   width: 50%;
   font-weight: 500;
@@ -228,7 +237,7 @@ body {
   background: linear-gradient(270deg, #00A3FF 0%, rgba(0, 163, 255, 0) 94.02%);
 }
 
-.Opportunity__inner .inner__comment .comment {
+.opportunity__inner .opportunity__comment .comment {
   position: absolute;
   top: 25%;
   width: 340px;
@@ -244,7 +253,7 @@ body {
           justify-content: space-between;
 }
 
-.begin__inner .inner__block {
+.begin__inner .begin__block {
   text-align: center;
   width: 315px;
   height: 315px;
@@ -254,15 +263,15 @@ body {
   transition: opacity .2s;
 }
 
-.begin__inner .inner__block:hover {
+.begin__inner .begin__block:hover {
   opacity: 0.9;
 }
 
-.begin__inner .inner__block:first-child {
+.begin__inner .begin__block:first-child {
   margin-left: 7%;
 }
 
-.begin__inner .inner__block:last-child {
+.begin__inner .begin__block:last-child {
   margin-right: 7%;
 }
 
@@ -308,6 +317,7 @@ body {
 }
 
 .footer {
+  z-index: 1001;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
