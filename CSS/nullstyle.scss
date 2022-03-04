@@ -1,0 +1,22 @@
+// Обнуление стилей
+
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+} 
+html,body,section{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 24px;
+    color:white;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+    background-color: $backg_color;
+}
