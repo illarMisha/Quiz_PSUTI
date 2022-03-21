@@ -1,0 +1,26 @@
+// Шаблонные стили
+@import "_variable.scss";
+
+%title__style{
+    font-size: $title_font_size;
+    line-height: $title_font_line;
+    font-weight: $title_font_weight;
+    margin-top: 160px;
+    text-align: center;
+}
+%title__style_1400{
+    font-size: $title_font_size_1400;
+    line-height: $title_font_line;
+    font-weight: $title_font_weight;
+    margin-top: 100px;
+    text-align: center;
+}
+
+%title__style_1080{
+    font-size: $title_font_size_1080;
+    line-height: $title_font_line;
+    font-weight: $title_font_weight;
+    margin-top: 60px;
+    text-align: center;
+}
+

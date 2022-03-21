@@ -1,14 +1,16 @@
 /*ctr+H*/
 /* элемент nav и header должны быть поверх блока в котором находится before*/
+
 /*показывает границы блоков *{
     outline: 2px solid red;
 } */
 
-@import "variable.scss";
-@import "font_face.scss";
-@import "nullstyle.scss";
-@import "patternstyle.scss";
-@import "base";
+@import "_variable.scss";
+@import "_font_face.scss";
+@import "_nullstyle.scss";
+@import "_patternstyle.scss";
+@import "_base";
+
 
 .header {
     width: 100%;
@@ -39,6 +41,57 @@
             padding-right: 250px;
         }
         
+    }
+    .btn__menu {
+        position: absolute;
+        display: none;
+        margin-left: 70%;
+        width: 80px;
+        height: 20px;
+    
+        border: 2px solid $backg_white;
+        box-sizing: border-box;
+        border-radius: 40px;
+    
+        cursor: pointer;
+
+        transition: border 0.5s, background-color 0.5s, box-shadow 0.5s;
+        &--hover:hover{
+        background-color: $backg_blue;
+        box-shadow: 1px 1px $backg_blue, 1px -1px $backg_blue, -1px 1px $backg_blue, -1px -1px $backg_blue, 1px 1px 10px $backg_blue;
+        border: 2px solid transparent; /*Прозрачность*/
+        }
+        .menu__text{
+            font-size: 12px;
+            margin: auto;
+        }
+    }
+    .header__menu{
+        position: absolute;
+        margin-left: 70%;
+        top:30px;
+        .menu__nav{
+            display: flex;
+            flex-direction: column;
+            font-weight: 700;
+            font-size: 8px;
+            text-transform: none;
+            text-align: center;
+
+            .nav__link {
+                margin-top:5px;
+                text-decoration: none;
+                color:$color_white;
+                transition: color .2s;
+    
+                &:hover {
+                    color:$color_blue;
+                }
+            }
+        }
+    }
+    .menu__hidden{
+        display: none;
     }
 }
 
@@ -238,3 +291,5 @@
         margin: auto;
     }
 }
+
+@import "_adaptive.scss";
